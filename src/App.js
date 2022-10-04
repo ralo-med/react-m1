@@ -1,45 +1,50 @@
 import React from "react";
 // eslint-disable-next-line
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const Father = styled.div`
+const Wrapper = styled.div`
   display: flex;
 `;
 
+const rotateAniamtion = keyframes`
+  0% {
+    transform:rotate(0deg);
+    border-radius:0px;
+  }
+  50% {
+    border-radius:100px;
+  }
+  100%{
+    transform:rotate(360deg);
+    border-radius:0px;}
+`;
+
 const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
-`;
-
-const Text = styled.h1`
-  color: white;
-`;
-
-const Circle = styled(Box)`
-  border-radius: 50px;
-`;
-const Btn = styled.button`
-  color: white;
+  height: 200px;
+  width: 200px;
   background-color: tomato;
-  border: 0;
-  border-radius: 15px;
-`;
-
-const Input = styled.input.attrs({ required: true })`
-  background-color: tomato;
+  animation: ${rotateAniamtion} 1s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 36px;
+    &:hover {
+      font-size: 50px;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
 `;
 
 function App() {
   return (
-    <Father>
-      <Box bgColor="teal">
-        <Text>Hello</Text>
+    <Wrapper>
+      <Box>
+        <span>😁</span>
       </Box>
-      <Circle bgColor="tomato" />
-      <Btn as="a">Log in</Btn>
-      <Input />
-    </Father>
+    </Wrapper>
   );
 }
 
