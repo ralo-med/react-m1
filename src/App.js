@@ -19,6 +19,16 @@ const Text = styled.h1`
 const Circle = styled(Box)`
   border-radius: 50px;
 `;
+const Btn = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
+`;
+
+const Input = styled.input.attrs({ required: true })`
+  background-color: tomato;
+`;
 
 function App() {
   return (
@@ -27,6 +37,8 @@ function App() {
         <Text>Hello</Text>
       </Box>
       <Circle bgColor="tomato" />
+      <Btn as="a">Log in</Btn>
+      <Input />
     </Father>
   );
 }
